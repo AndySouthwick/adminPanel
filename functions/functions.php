@@ -104,16 +104,14 @@ function show_orders(){
 
   $query = "SELECT 
   user_orders.unique_id, 
-  user_orders.product_key,
-  user_orders.upsell_purchased,
+
   user_orders.Time_Stamp, 
   user.first_name, 
   user.last_name, 
   user.address_1,  
   user.zip,
- 
-  my_products.product_name,
-  my_products.upsell_data
+  my_products.product_name
+
   
    FROM user_orders 
    LEFT JOIN user ON user_orders.u_id=user.u_id 
