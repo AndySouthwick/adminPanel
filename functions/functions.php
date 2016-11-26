@@ -114,8 +114,8 @@ function show_orders(){
   user_orders.upsell_purchased,
   user_orders.Time_Stamp 
    FROM user_orders 
-   INNER JOIN user ON user_orders.u_id=user.u_id 
-   INNER JOIN my_products ON user_orders.product_key=my_products.unique_id";
+   LEFT JOIN user ON user_orders.u_id=user.u_id 
+   LEFT JOIN my_products ON user_orders.product_key=my_products.unique_id";
  
  $data = mysqli_query($dbc, $query)or die('Error querying tables');
 
