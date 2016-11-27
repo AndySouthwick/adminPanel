@@ -102,20 +102,20 @@ function show_orders(){
 
 
 
-  $query = "SELECT 
-  user_orders.unique_id, 
-
-  user_orders.Time_Stamp, 
-  user.first_name, 
-  user.last_name, 
-  user.address_1,  
-  user.zip,
-  my_products.product_name
-
-  
-   FROM user_orders 
-   LEFT JOIN user ON user_orders.u_id=user.u_id 
-   LEFT JOIN my_products ON user_orders.product_key=my_products.unique_id";
+ $query = "SELECT 
+o.unique_id,
+o.Time_Stamp,
+u.first_name,
+u.last_name,
+u.address_1,
+u.zip,
+p.product_name AS pn1,
+p2.product_name AS pn2
+FROM user_orders AS o 
+INNER JOIN user AS u ON o.u_id=u.u_id
+INNER JOIN my_products AS p ON o.product_key=p.unique_id
+INNER JOIN my_products AS p2 ON o.upsell_purchased=p2.unique_id 
+";
  
  $data = mysqli_query($dbc, $query)or die('Error querying tables');
 
@@ -132,8 +132,8 @@ function show_orders(){
       echo '<div class="col-md-1">' .$row['first_name']. '</div>';
       echo '<div class="col-md-2">' .$row['last_name']. '</div>';
       echo '<div class="col-md-2">' .$row['address_1']. '<br/>' .$row['zip']. '</div>';
-      echo '<div class="col-md-2">' .$row['product_name']. '</div>';
-      echo '<div class="col-md-2">' .$upsell_order. '</div>';
+      echo '<div class="col-md-2">' .$row['pn1']. '</div>';
+      echo '<div class="col-md-2">' .$row['pn2']. 'test</div>';
        echo '<div class="col-md-2">' .$row['Time_Stamp']. '</div>';
       
       echo '</div></div></div>';
