@@ -6,12 +6,9 @@
 
 /* Global Styles */
 
-body {
-    margin-top: 100px;
-    background-color: #222;
-}
 
-@media(min-width:768px) {
+
+/*@media(min-width:768px) {
     body {
         margin-top: 50px;
     }
@@ -40,11 +37,11 @@ body {
     #page-wrapper {
         padding: 10px;
     }
-}
+}*/
 
 /* Top Navigation */
 
-.top-nav {
+/*.top-nav {
     padding: 0 15px;
 }
 
@@ -108,11 +105,11 @@ li.message-footer {
 
 ul.alert-dropdown {
     width: 200px;
-}
+}*/
 
 /* Side Navigation */
 
-@media(min-width:768px) {
+/*@media(min-width:768px) {
     .side-nav {
         position: fixed;
         top: 51px;
@@ -148,11 +145,11 @@ ul.alert-dropdown {
     padding: 10px 15px 10px 38px;
     text-decoration: none;
     color: #999;
-}
-
+}*/
+/*
 .side-nav>li>ul>li>a:hover {
     color: #fff;
-}
+}*/
 
 /* Flot Chart Containers */
 

@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <!--<link href="css/sb-admin.css" rel="stylesheet">-->
+    <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
@@ -40,7 +40,7 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="index.php">Dashboard</a></li>
+    <li><a href="index.php?layout=1&page=dashboard">Dashboard</a></li>
       <li><a href="index.php?layout=1&page=products">Products</a></li>
       <li><a href="index.php?layout=1&page=users">Users</a></li>
       <li><a href="index.php?layout=1&page=orders">Orders</a></li>
