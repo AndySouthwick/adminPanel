@@ -83,7 +83,7 @@ function edit_user(){
 ;}
 
 function show_orders(){
-
+  $page= $_GET['page'];
   $dbc = mysqli_connect('localhost', 'root', 'root', 'music_app')
    or die('Error connecting to MySQL server.');
       $query = "SELECT 
@@ -93,6 +93,7 @@ function show_orders(){
       u.last_name,
       u.address_1,
       u.zip,
+      p.product_price,
       p.product_name AS pn1,
       p2.product_name AS pn2
       FROM user_orders AS o 
@@ -101,8 +102,21 @@ function show_orders(){
       INNER JOIN my_products AS p2 ON o.upsell_purchased=p2.unique_id ";
 
  $data = mysqli_query($dbc, $query)or die('Error querying tables');
-     while($row = $data->fetch_array()){ 
-  
+    
+
+        if ($page == dashboard){
+         while($row = $data->fetch_array()){ 
+        echo' <tr>
+               <td>' .$row['unique_id']. '</td>
+              <td>' .$row['Time_Stamp']. '</td>
+              <td>' .$row['pn1']. '</td>
+              <td>$' .$row['product_price']. '</td>
+              </tr>';
+              mysqli_close($dbc);
+         } 
+         } if ($page != dashboard){
+           $page= $_GET['page'];
+   while($row = $data->fetch_array()){ 
       echo'<div class="col-md-12"><div class="panel panel-default">
       <div class="panel-body">';
       echo '<div class="col-md-1">' .$row['unique_id']. '</div>';
@@ -114,7 +128,9 @@ function show_orders(){
        echo '<div class="col-md-2">' .$row['Time_Stamp']. '</div>';
       
       echo '</div></div></div>';
-    
+      mysqli_close($dbc);
+        }
+     
       }
 };
 
