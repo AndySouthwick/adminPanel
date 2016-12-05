@@ -243,9 +243,4 @@
 
     </div>
     <!-- /#wrapper -->
-    $query= "SELECT user_orders.unique_id,
---                  user_orders.product_key, 
---                  my_products.unique_id, 
---                  my_products.product_name 
---                 FROM user_orders GROUP BY user_orders.unique_id ORDER BY SUM(Quantity)
---                 INNER JOIN my_products ON orders.product_key=my_products.unique_id ";
+   
